@@ -1,11 +1,10 @@
-import { Button } from "@/components/ui/button";
-import React from "react";
+"use client"
+ 
 
 function page() {
   console.log("first")
   return (
     <>
-      <Button>Click</Button>
     </>
   );
 }
