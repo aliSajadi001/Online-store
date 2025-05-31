@@ -1,12 +1,11 @@
-"use client"
- 
+import React from 'react';
 
 function page() {
-  console.log("first")
-  return (
-    <>
-    </>
-  );
+     return (
+          <div className="h-[1222px]">
+   
+          </div>
+     );
 }
 
 export default page;

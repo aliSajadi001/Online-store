@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { ModeToggle } from './Theme';
+import SmalMenu from './SmalMenu';
 
 function Navbar() {
      const [showInput, setShowInput] = useState<boolean>(false);
@@ -51,17 +52,16 @@ function Navbar() {
                     </svg>
                </div>
                {/* search bar----------------------------------------------------------------------- */}
-
                <div>
                     <div className="flex items-center">
                          <div
-                              className="rounded-full bg-orange-400 p-2 text-white cursor-pointer"
+                              className="rounded-full bg-orange-400 p-2 text-white cursor-pointer size-7 md:size-8"
                               onClick={() => setShowInput((prev) => !prev)}
                          >
                               <svg
                                    xmlns="http://www.w3.org/2000/svg"
-                                   width="16"
-                                   height="16"
+                                   width="14"
+                                   height="14"
                                    fill="currentColor"
                                    className="bi bi-search"
                                    viewBox="0 0 16 16"
@@ -72,16 +72,16 @@ function Navbar() {
                          <input
                               type="text"
                               placeholder="Search hear"
-                              className={`ml-2 rounded-full px-4 py-1 border border-orange-500 placeholder:text-orange-400  outline-none transition-all duration-500 bg-white text-black ${
+                              className={`ml-2 rounded-full px-4 py-[1px] placeholder:text-sm md:placeholder:text-lg md:py-1 border border-orange-500 placeholder:text-orange-400  outline-none transition-all duration-500 bg-white text-black ${
                                    showInput
-                                        ? 'md:w-[200px] lg:w-[340px] opacity-100'
+                                        ? 'w-[150px] md:w-[300px] lg:w-[340px] opacity-100'
                                         : 'w-0 opacity-0'
                               } overflow-hidden`}
                          />
                     </div>
                </div>
                {/* Links--------------------------------------------------------------------------------- */}
-               <div className="flex items-center gap-5 ">
+               <div className="hidden md:flex items-center gap-5  ">
                     <Link
                          href="/"
                          className="text-orange-500 font-bold text-md hover:scale-110 duration-300 transition-all"
@@ -114,7 +114,14 @@ function Navbar() {
                     </Link>
                </div>
                {/* ModeToggle------------------------------------------------------------------------------- */}
-               <ModeToggle />
+               <div className="hidden md:block ">
+                    <ModeToggle />
+               </div>
+               {/* Mobile Menu------------------------------------------------------------------------------- */}
+
+               <div className=" block md:hidden ">
+                    <SmalMenu />
+               </div>
           </div>
      );
 }
